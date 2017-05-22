@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diligent.iOS", "iOS\Diligen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diligent.Droid", "Droid\Diligent.Droid.csproj", "{146B363B-8BC7-4A77-ACCA-EA66644A8D7E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiligentDarkSide", "DiligentDarkSide\DiligentDarkSide.csproj", "{B737FFC4-E366-412B-84D1-337D7A49ADD5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,5 +55,17 @@ Global
 		{146B363B-8BC7-4A77-ACCA-EA66644A8D7E}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{146B363B-8BC7-4A77-ACCA-EA66644A8D7E}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{146B363B-8BC7-4A77-ACCA-EA66644A8D7E}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{B737FFC4-E366-412B-84D1-337D7A49ADD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B737FFC4-E366-412B-84D1-337D7A49ADD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B737FFC4-E366-412B-84D1-337D7A49ADD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B737FFC4-E366-412B-84D1-337D7A49ADD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B737FFC4-E366-412B-84D1-337D7A49ADD5}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{B737FFC4-E366-412B-84D1-337D7A49ADD5}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{B737FFC4-E366-412B-84D1-337D7A49ADD5}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{B737FFC4-E366-412B-84D1-337D7A49ADD5}.Release|iPhone.Build.0 = Release|Any CPU
+		{B737FFC4-E366-412B-84D1-337D7A49ADD5}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{B737FFC4-E366-412B-84D1-337D7A49ADD5}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{B737FFC4-E366-412B-84D1-337D7A49ADD5}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{B737FFC4-E366-412B-84D1-337D7A49ADD5}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal
