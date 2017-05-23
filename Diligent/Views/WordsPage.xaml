@@ -3,13 +3,27 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="Diligent.WordsPage"
-    xmlns:vm="clr-namespace:Diligent.ViewModels">
+    xmlns:vm="clr-namespace:Diligent.ViewModels"
+    xmlns:converters="clr-namespace:Diligent.Converters">
+    
     <ContentPage.BindingContext>
         <vm:WordsViewModel/>
     </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
-        <StackLayout Padding="20, 40, 20, 20">
-            <ListView
+       <StackLayout Padding="20" VerticalOptions="Center">
+            <ActivityIndicator
+                IsVisible="{Binding WordsAreLoading}"
+                IsRunning="{Binding WordsAreLoading}"/>
+           
+            <ListView Margin="0, 20, 0, 0"
+                IsVisible="{Binding WordsAreLoading, Converter={StaticResource InverseBooleanConverter}}"
                 x:Name="lvWords"
                 ItemsSource="{Binding WordList}"
                 HasUnevenRows="true"
@@ -33,10 +47,13 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button 
+            
+            <Button
+                IsVisible="{Binding WordsAreLoading, Converter={StaticResource InverseBooleanConverter}}"
                 Text="Confirm"
                 HorizontalOptions="Center"
                 Command="{Binding ShowResultsCommand}"/>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

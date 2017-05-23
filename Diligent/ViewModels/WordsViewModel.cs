@@ -15,6 +15,8 @@ namespace Diligent.ViewModels
     {
         public WordsViewModel()
         {
+            WordsAreLoading = false;
+
             FetchWords();
 
             ShowResultsCommand = new Command(() =>
@@ -29,10 +31,13 @@ namespace Diligent.ViewModels
 
         private async void FetchWords()
         {
+			WordsAreLoading = true;
+
             var wordsServices = new WordsServices();
             WordList = await wordsServices.GetWordsAsync();
-        }
 
+            WordsAreLoading = false;
+        }
 
         private int CalculateMistakes()
         {
@@ -40,13 +45,23 @@ namespace Diligent.ViewModels
         }
 
         private List<Word> _wordList { get; set; }
-
 		public List<Word> WordList
 		{
 			get { return _wordList; }
 			set
 			{
 				_wordList = value;
+				OnPropertyChanged();
+			}
+		}
+
+        private Boolean _wordsAreLoading { get; set; }
+		public Boolean WordsAreLoading
+		{
+			get { return _wordsAreLoading; }
+			set
+			{
+				_wordsAreLoading = value;
 				OnPropertyChanged();
 			}
 		}

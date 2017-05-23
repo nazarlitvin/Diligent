@@ -54,6 +54,7 @@
     <Compile Include="ViewModels\ResultsViewModel.cs" />
     <Compile Include="RestClient\TaskModel.cs" />
     <Compile Include="RestClient\RestClient.cs" />
+    <Compile Include="Converters\InverseBooleanConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
