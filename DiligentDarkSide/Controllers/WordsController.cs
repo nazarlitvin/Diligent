@@ -16,7 +16,11 @@ namespace DiligentDarkSide.Controllers
         [HttpGet]
         public IEnumerable<Word> Get()
         {
-            return ctx.Words.ToList();
+            return ctx
+                .Words
+                .OrderBy(r => Guid.NewGuid())
+                .Take(5)
+                .ToList();
         }
     }
 }
