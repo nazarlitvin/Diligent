@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Xamarin.Forms;
 using System.Windows.Input;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using Xamarin.Forms;
 using Diligent.Models;
 using Diligent.Services;
 using Diligent.Views;
@@ -9,19 +11,11 @@ using System.Linq;
 
 namespace Diligent.ViewModels
 {
-    public class NavigationMessage
-    {
-        public string TargetView { get; set; }
-        public object Parameter { get; set; }
-    }
-
-    public class WordsViewModel
+    public class WordsViewModel : INotifyPropertyChanged
     {
         public WordsViewModel()
         {
-            var wordsServices = new WordsServices();
-
-            WordList = wordsServices.GetWords();
+            FetchWords();
 
             ShowResultsCommand = new Command(() =>
             {
@@ -33,13 +27,37 @@ namespace Diligent.ViewModels
             });
         }
 
+        private async void FetchWords()
+        {
+            var wordsServices = new WordsServices();
+            WordList = await wordsServices.GetWordsAsync();
+        }
+
+
         private int CalculateMistakes()
         {
             return WordList.Count(w => w.Value?.ToLower().Trim() != w.Translate.ToLower());
         }
 
-        public List<Word> WordList { get; set; }
+        private List<Word> _wordList { get; set; }
+
+		public List<Word> WordList
+		{
+			get { return _wordList; }
+			set
+			{
+				_wordList = value;
+				OnPropertyChanged();
+			}
+		}
 
         public ICommand ShowResultsCommand { get; }
-    }
+
+		public event PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
 }
