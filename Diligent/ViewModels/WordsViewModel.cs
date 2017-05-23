@@ -15,8 +15,6 @@ namespace Diligent.ViewModels
     {
         public WordsViewModel()
         {
-            WordsAreLoading = false;
-
             FetchWords();
 
             ShowResultsCommand = new Command(() =>
@@ -44,26 +42,18 @@ namespace Diligent.ViewModels
             return WordList.Count(w => w.Value?.ToLower().Trim() != w.Translate.ToLower());
         }
 
-        private List<Word> _wordList { get; set; }
+        private List<Word> _wordList { get; set; } 
 		public List<Word> WordList
 		{
 			get { return _wordList; }
-			set
-			{
-				_wordList = value;
-				OnPropertyChanged();
-			}
+			set { _wordList = value; OnPropertyChanged(); }
 		}
 
-        private Boolean _wordsAreLoading { get; set; }
+        private Boolean _wordsAreLoading { get; set; } = false;
 		public Boolean WordsAreLoading
 		{
 			get { return _wordsAreLoading; }
-			set
-			{
-				_wordsAreLoading = value;
-				OnPropertyChanged();
-			}
+			set { _wordsAreLoading = value; OnPropertyChanged(); }
 		}
 
         public ICommand ShowResultsCommand { get; }

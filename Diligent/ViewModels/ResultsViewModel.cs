@@ -20,11 +20,7 @@ namespace Diligent.ViewModels
 		public string ResultsMessage
 		{
 			get { return _resultsMessage; }
-			set
-			{
-				_resultsMessage = value;
-				OnPropertyChanged();
-			}
+			set { _resultsMessage = value; OnPropertyChanged(); }
 		}
 
 		public ICommand TryAgainCommand { get; }

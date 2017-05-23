@@ -20,7 +20,7 @@ namespace Plugin.RestClient
             var httpClient = new HttpClient();
 
             var json = await httpClient.GetStringAsync(WebServiceUrl);
-
+           
             var taskModels = JsonConvert.DeserializeObject<List<T>>(json);
 
             return taskModels;

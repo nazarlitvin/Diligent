@@ -15,11 +15,7 @@ namespace Diligent.Models
 		public string Value
 		{
 			get { return _value; }
-			set
-			{
-				_value = value;
-				OnPropertyChanged();
-			}
+			set { _value = value; OnPropertyChanged(); }
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;

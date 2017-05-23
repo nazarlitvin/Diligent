@@ -12,9 +12,7 @@ namespace Diligent.Services
 		{
             RestClient<Word> restClient = new RestClient<Word>();
 
-            var wordList = await restClient.GetAsync();
-
-            return wordList;
+            return await restClient.GetAsync();
         }
     }
 }
