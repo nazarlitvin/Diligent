@@ -15,25 +15,25 @@
             <converters:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
+
     <ContentPage.Content>
-       <StackLayout Padding="20" VerticalOptions="Center">
+        <StackLayout Padding="0, 0, 0, 20" VerticalOptions="Center">
+            
             <ActivityIndicator
                 IsVisible="{Binding WordsAreLoading}"
                 IsRunning="{Binding WordsAreLoading}"/>
-           
-            <ListView Margin="0, 20, 0, 0"
+
+            <ListView Margin="0, 40, 0, 0"
                 IsVisible="{Binding WordsAreLoading, Converter={StaticResource InverseBooleanConverter}}"
-                x:Name="lvWords"
                 ItemsSource="{Binding WordList}"
                 HasUnevenRows="true"
                 SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Vertical">
+                            <StackLayout Orientation="Vertical" Padding="20, 7, 20, 7">
                                 <Label Text="{Binding Title}"/>
-                                <Entry Text="{Binding Value, Mode=TwoWay}" Margin="0,0,0,10">
+                                <Entry Text="{Binding Value, Mode=TwoWay}">
                                   <Entry.Keyboard>
                                     <Keyboard x:FactoryMethod="Create">
                                       <x:Arguments>

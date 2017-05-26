@@ -55,6 +55,8 @@
     <Compile Include="RestClient\TaskModel.cs" />
     <Compile Include="RestClient\RestClient.cs" />
     <Compile Include="Converters\InverseBooleanConverter.cs" />
+    <Compile Include="Models\WordStorage.cs" />
+    <Compile Include="Converters\FormatAnswerConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

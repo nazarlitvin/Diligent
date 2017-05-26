@@ -7,7 +7,6 @@ using Xamarin.Forms;
 using Diligent.Models;
 using Diligent.Services;
 using Diligent.Views;
-using System.Linq;
 
 namespace Diligent.ViewModels
 {
@@ -19,11 +18,8 @@ namespace Diligent.ViewModels
 
             ShowResultsCommand = new Command(() =>
             {
-                var mistakes = CalculateMistakes();
-                var message = "Mistakes: " + mistakes;
-
+                WordStorage.Instance.SetWords(WordList);
                 Application.Current.MainPage = new ResultsPage();
-                MessagingCenter.Send(this, "Hi", message);
             });
         }
 
@@ -35,11 +31,6 @@ namespace Diligent.ViewModels
             WordList = await wordsServices.GetWordsAsync();
 
             WordsAreLoading = false;
-        }
-
-        private int CalculateMistakes()
-        {
-            return WordList.Count(w => w.Value?.ToLower().Trim() != w.Translate.ToLower());
         }
 
         private List<Word> _wordList { get; set; } 
@@ -63,6 +54,11 @@ namespace Diligent.ViewModels
 		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
+
+		public void listSelection(object sender, SelectedItemChangedEventArgs e)
+		{
+			((ListView)sender).SelectedItem = null;
 		}
 	}
 }

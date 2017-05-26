@@ -18,6 +18,11 @@ namespace Diligent.Models
 			set { _value = value; OnPropertyChanged(); }
 		}
 
+		public string TitleAndTranslate
+		{
+            get { return $"{Translate} ({Title})"; }
+		}
+
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
